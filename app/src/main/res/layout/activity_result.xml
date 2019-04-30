@@ -41,8 +41,8 @@
             android:id="@+id/button3"
             android:layout_width="330dp"
             android:layout_height="wrap_content"
-            android:onClick="goBackMain"
-            android:text="Go back "
+            android:onClick="playAgain"
+            android:text="Gioca dinuovo"
             android:textSize="18sp" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

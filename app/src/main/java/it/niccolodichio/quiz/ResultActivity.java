@@ -8,8 +8,15 @@ import android.widget.TextView;
 
 import it.niccolodichio.quiz.game.GameManager;
 
+/**
+ * @author Niccolò Di Chio
+ */
 public class ResultActivity extends AppCompatActivity {
 
+    /**
+     * The last activity shown after the last question
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,7 +26,11 @@ public class ResultActivity extends AppCompatActivity {
         scoreView.setText(GameManager.getInstance().getScore() + "/" + GameManager.getInstance().getQuestions().size());
     }
 
-    public void goBackMain(View view) {
+    /**
+     * Method bound to the button "Play again"
+     * @param view
+     */
+    public void playAgain(View view) {
         startActivity(new Intent(this, MainActivity.class));
     }
 }

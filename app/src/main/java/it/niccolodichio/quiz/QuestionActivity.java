@@ -16,53 +16,66 @@ import it.niccolodichio.quiz.game.Answer;
 import it.niccolodichio.quiz.game.GameManager;
 import it.niccolodichio.quiz.game.Question;
 
+/**
+ * @author Niccolò Di Chio
+ */
 public class QuestionActivity extends AppCompatActivity {
 
     private Question question;
     private Map<View, Answer> questionAnswers;
 
+    /**
+     * The question activity called for every game question
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
 
-        questionAnswers = new HashMap<>();
-
+        // The current question index
         final int questionIndex = getIntent().getIntExtra("QUESTION_INDEX", 0);
+        // The next questin index
         final int nextQuestionIndex = questionIndex + 1;
 
+        // The current question object
         question = GameManager.getInstance().getQuestion(questionIndex);
+        questionAnswers = new HashMap<>();
 
+        // The button for the next/finish activity
         final Button nextButton = findViewById(R.id.nextQuestion);
 
+        // If there are questions left, continue
         if(GameManager.getInstance().getQuestion(nextQuestionIndex) != null) {
             nextButton.setText("Prossima domanda");
-            nextButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    checkAnswer();
-                    Intent intent = new Intent(QuestionActivity.this, QuestionActivity.class);
-                    intent.putExtra("QUESTION_INDEX", nextQuestionIndex);
-                    startActivity(intent);
-                }
+            nextButton.setOnClickListener(view -> {
+                checkAnswer();
+                Intent intent = new Intent(QuestionActivity.this, QuestionActivity.class);
+                intent.putExtra("QUESTION_INDEX", nextQuestionIndex);
+                startActivity(intent);
             });
-        } else {
+        }
+        // Else show a "Finish" button
+        else {
             nextButton.setText("Fine");
-            nextButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    checkAnswer();
-                    startActivity(new Intent(QuestionActivity.this, ResultActivity.class));
-                }
+            nextButton.setOnClickListener(view -> {
+                checkAnswer();
+                startActivity(new Intent(QuestionActivity.this, ResultActivity.class));
             });
         }
 
+        // Set quetion number
         ((TextView) findViewById(R.id.questionNumber)).setText("Domanda N°" + (nextQuestionIndex));
+        // Set question content
         ((TextView) findViewById(R.id.questionText)).setText(question.getText());
 
+        // Loads the answers
         loadAnswers();
     }
 
+    /**
+     * Check the presset answer, called when next/finish button is clicked
+     */
     private void checkAnswer() {
         RadioGroup group = findViewById(R.id.answerGroup);
         View view = findViewById(group.getCheckedRadioButtonId());
@@ -70,23 +83,21 @@ public class QuestionActivity extends AppCompatActivity {
         if(!questionAnswers.containsKey(view))
             return;
 
+        // The selected answer
         Answer answer = questionAnswers.get(view);
         if(answer == null)
             return;
 
-        if(answer.isCorrect())
-            GameManager.getInstance().incrementScore();
+        // Increments the score (only if answer is correct)
+        GameManager.getInstance().incrementScore(answer);
     }
 
+    /**
+     * Loads and displays all answers
+     */
     private void loadAnswers() {
-        int answerIndex = 0;
-
+        // Display the correct amount of radio buttons based on number of answers in the question
         switch(question.getAnswers().size()) {
-            case 1:
-                findViewById(R.id.answerTwo).setVisibility(View.INVISIBLE);
-                findViewById(R.id.answerThree).setVisibility(View.INVISIBLE);
-                findViewById(R.id.answerFour).setVisibility(View.INVISIBLE);
-                break;
             case 2:
                 findViewById(R.id.answerFour).setVisibility(View.INVISIBLE);
                 findViewById(R.id.answerThree).setVisibility(View.INVISIBLE);
@@ -96,6 +107,10 @@ public class QuestionActivity extends AppCompatActivity {
                 break;
         }
 
+
+        int answerIndex = 0;
+
+        // Bind an answer to a radio button and shows the answer content
         for(Answer answer : question.getAnswers()) {
             RadioButton radio = null;
             switch(answerIndex++) {
