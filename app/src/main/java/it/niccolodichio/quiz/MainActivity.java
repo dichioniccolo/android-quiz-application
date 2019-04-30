@@ -33,7 +33,8 @@ public class MainActivity extends AppCompatActivity {
      * @param view
      */
     public void startGame(View view) {
-        startActivity(new Intent(this, QuestionActivity.class));
+        startActivity(new Intent(this, CountdownActivity.class));
+        finish();
     }
 
     /**
@@ -46,10 +47,10 @@ public class MainActivity extends AppCompatActivity {
                     new Answer("Jeff bezos", true),
                     new Answer("Topo Gigio", false),
                     new Answer("Stefano Lavori", false)));
-            m.addQuestion(new Question("La famosa città di Boston si trova:",
-                    new Answer("In Canada", false),
-                    new Answer("Su Namek", false),
-                    new Answer("Negli USA", true)));
+            m.addQuestion(new Question("La famosa città di Boston si trova in:",
+                    new Answer("Canada", false),
+                    new Answer("Namek", false),
+                    new Answer("USA", true)));
             m.addQuestion(new Question("Heidi Klum è una: ",
                     new Answer("Atleta", false),
                     new Answer("Pittrice", false),
@@ -82,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
                     new Answer("Vettore di Poynting", false),
                     new Answer("Diagramma di Penrose", true),
                     new Answer("Principio di Mach", false)));
-            m.addQuestion(new Question("Quale di queste cppie ha condotto il festival di Sanremo?",
+            m.addQuestion(new Question("Quale di queste coppie ha condotto il festival di Sanremo?",
                     new Answer("Gianni e Pinotto", false),
                     new Answer("Dr. Jekyll e Mr. Hyde", false),
                     new Answer("Michelle Hunziker e Pippo Baudo", true)));

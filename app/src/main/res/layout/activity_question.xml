@@ -13,6 +13,14 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/countdown"
+            android:layout_width="330dp"
+            android:layout_height="62dp"
+            android:textAlignment="center"
+            android:textColor="#E91E1E"
+            android:textSize="24sp" />
+
+        <TextView
             android:id="@+id/questionNumber"
             android:layout_width="330dp"
             android:layout_height="wrap_content"
@@ -25,6 +33,7 @@
             android:layout_width="330dp"
             android:layout_height="wrap_content"
             android:textAlignment="center"
+            android:textColor="#2196F3"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -62,11 +71,6 @@
                 android:layout_weight="1" />
         </RadioGroup>
 
-        <Button
-            android:id="@+id/nextQuestion"
-            android:layout_width="330dp"
-            android:layout_height="wrap_content"
-            android:textSize="12sp" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

@@ -20,7 +20,7 @@ public class GameManager {
     }
 
     // Maximum number of playable questions
-    private final int MAX_QUESTIONS = 10;
+    final private int MAX_QUESTIONS = 10;
 
     private List<Question> allQuestions;
     private List<Question> gameQuestions;

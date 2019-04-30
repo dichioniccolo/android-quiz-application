@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ResultActivity">
+    tools:context=".CountdownActivity">
 
     <LinearLayout
         android:layout_width="395dp"
@@ -20,37 +20,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/logo"
-            android:layout_width="match_parent"
-            android:layout_height="232dp"
-            app:srcCompat="@drawable/logo" />
-
         <TextView
-            android:id="@+id/gameScoreDesc"
+            android:id="@+id/countdown"
             android:layout_width="match_parent"
-            android:layout_height="51dp"
-            android:text="Game Score"
+            android:layout_height="79dp"
             android:textAlignment="center"
-            android:textSize="30sp"
+            android:textColor="#2196F3"
+            android:textSize="75sp"
             android:textStyle="bold" />
-
-        <RatingBar
-            android:id="@+id/ratingBar"
-            android:layout_width="wrap_content"
-            android:layout_height="62dp"
-            android:isIndicator="true"
-            android:max="5"
-            android:numStars="5"
-            android:progress="0"
-            android:progressTint="#FFEB3B"
-            android:stepSize="1" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="55dp"
-            android:onClick="playAgain"
-            android:text="Gioca ancora"
-            android:textSize="18sp" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

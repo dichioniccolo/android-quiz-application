@@ -4,7 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.ImageView;
+import android.widget.RatingBar;
 
 import it.niccolodichio.quiz.game.GameManager;
 
@@ -22,8 +23,7 @@ public class ResultActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
 
-        TextView scoreView = findViewById(R.id.gameScore);
-        scoreView.setText(GameManager.getInstance().getScore() + "/" + GameManager.getInstance().getQuestions().size());
+        ((RatingBar) findViewById(R.id.ratingBar)).setRating(GameManager.getInstance().getScore() / 2);
     }
 
     /**
@@ -32,5 +32,6 @@ public class ResultActivity extends AppCompatActivity {
      */
     public void playAgain(View view) {
         startActivity(new Intent(this, MainActivity.class));
+        finish();
     }
 }
