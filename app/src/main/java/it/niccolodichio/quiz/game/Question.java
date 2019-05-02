@@ -15,14 +15,14 @@ public class Question {
     /**
      * Base constructor for a question
      * @param text Content of the question
-     * @param answers Array of answers {@link Answer}
+     * @param answers List of answers {@link Answer}
      * @throws Exception Throws an exception if less than 2 answers are inserted in the array OR if count of correct answers is more than 1 or equals to 0
      */
-    public Question(String text, Answer... answers) throws Exception {
+    public Question(String text, List<Answer> answers) throws Exception {
         this.text = text;
 
         // Check if answer length are more than 1
-        if(answers.length < 2)
+        if(answers.size() < 2)
             throw new Exception("You have to insert at least 2 answers!");
 
         // Count the number of correct answers
@@ -36,10 +36,19 @@ public class Question {
         if(correctCount > 1 || correctCount == 0)
             throw new Exception("You can not put multiple correct answers in a single question");
 
-        // Create a list from the array
-        this.answers = Arrays.asList(answers);
+        this.answers = answers;
         // Shuffle the list to have some random positioning
         Collections.shuffle(this.answers);
+    }
+
+    /**
+     * Base constructor for a question
+     * @param text Content of the question
+     * @param answers Array of answers {@link Answer}
+     * @throws Exception Throws an exception if less than 2 answers are inserted in the array OR if count of correct answers is more than 1 or equals to 0
+     */
+    public Question(String text, Answer... answers) throws Exception {
+        this(text, Arrays.asList(answers));
     }
 
     /**

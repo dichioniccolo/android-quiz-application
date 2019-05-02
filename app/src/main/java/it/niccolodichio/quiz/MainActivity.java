@@ -123,4 +123,26 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
+    /*private void loadQuestions() {
+        GameManager gm = GameManager.getInstance();
+
+        try {
+            BufferedReader bf = new BufferedReader(new InputStreamReader(getAssets().open("questions.txt")));
+
+            String line;
+            while((line = bf.readLine()) != null) {
+                List<Answer> answers = new ArrayList<>();
+                String[] parsed = line.split("§");
+                for(int i = 1; i < parsed.length; i++) {
+                    String[] answer = parsed[i].split(";");
+                    answers.add(new Answer(answer[0], Boolean.parseBoolean(answer[1])));
+                }
+
+                gm.addQuestion(new Question(parsed[0], answers));
+            }
+        } catch(Exception e) {
+            Log.d("ERRORE", e.getMessage());
+        }
+    }*/
 }
