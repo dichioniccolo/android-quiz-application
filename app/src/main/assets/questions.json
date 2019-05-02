@@ -1,0 +1,327 @@
+{
+  "data": [
+    {
+      "text": "Il fondatore di amazon si chiama?",
+      "answers": [
+        {
+          "text": "Jeff Bezos",
+          "correct": true
+        },
+        {
+          "text": "Topo Gigio",
+          "correct": false
+        },
+        {
+          "text": "Stefano Lavori",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "text": "La famosa città di Boston si trova in:",
+      "answers": [
+        {
+          "text": "USA",
+          "correct": true
+        },
+        {
+          "text": "Canada",
+          "correct": false
+        },
+        {
+          "text": "Namek",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "text": "Chi interpreta Iron Man nei film Marvel?",
+      "answers": [
+        {
+          "text": "Robert Downey Jr.",
+          "correct": true
+        },
+        {
+          "text": "Jack Nicholson",
+          "correct": false
+        },
+        {
+          "text": "Herbert Ballerina",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "text": "Jude Law interpreta uno dei personaggi di un film di quest'anno, qual'è il film?",
+      "answers": [
+        {
+          "text": "Animali Fantastici",
+          "correct": true
+        },
+        {
+          "text": "Sherlok",
+          "correct": false
+        },
+        {
+          "text": "Star Trek",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "text": "Qual è il nome della donna alla quale è stata dedicata la poesia 'La pioggia nel pineto'?",
+      "answers": [
+        {
+          "text": "Elena",
+          "correct": false
+        },
+        {
+          "text": "Ermione",
+          "correct": false
+        },
+        {
+          "text": "Eleonora",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "text": "Esiste un trattato il cui acronimo è anche un derivato del petrolio che coinvolge:",
+      "answers": [
+        {
+          "text": "USA, Canada e Messico",
+          "correct": true
+        },
+        {
+          "text": "Arabia Saudita, UAE e Bahrein",
+          "correct": false
+        },
+        {
+          "text": "Venezuela, Colombia ed Ecuador",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "text": "Dove vivevano gli Illiri?",
+      "answers": [
+        {
+          "text": "Mesopotamia",
+          "correct": false
+        },
+        {
+          "text": "Penisola Balcanica",
+          "correct": true
+        },
+        {
+          "text": "Africa Settentrionale",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "text": "Quale nazione è l'attuale campione mondiale dell'hockey della sua versione 'verde'?",
+      "answers": [
+        {
+          "text": "Argentina",
+          "correct": false
+        },
+        {
+          "text": "Australia",
+          "correct": true
+        },
+        {
+          "text": "Inghilterra",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "text": "Quale di questi elementi ha a che fare con la teoria della relatività?",
+      "answers": [
+        {
+          "text": "Vettore di Poynting",
+          "correct": false
+        },
+        {
+          "text": "Diagramma di Penrose",
+          "correct": true
+        },
+        {
+          "text": "Principio di Mach",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "text": "Quale di queste coppie ha condotto il festival di Sanremo?",
+      "answers": [
+        {
+          "text": "Gianni e Pinotto",
+          "correct": false
+        },
+        {
+          "text": "Dr. Jekyll e Mr. Hyde",
+          "correct": false
+        },
+        {
+          "text": "Michelle Hunziker e Pippo Baudo",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "text": "Dove è ambientata la sit-com 'Camera Café'?",
+      "answers": [
+        {
+          "text": "In un ospedale",
+          "correct": false
+        },
+        {
+          "text": "In un'azienda",
+          "correct": true
+        },
+        {
+          "text": "In una stazione",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "text": "Quando si celebra il 'Columbus Day' negli Stati Uniti?",
+      "answers": [
+        {
+          "text": "Secondo lunedì di ottobre",
+          "correct": true
+        },
+        {
+          "text": "Primo martedì di novembre",
+          "correct": false
+        },
+        {
+          "text": "Ultima domenica di settembre",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "text": "In che parte dell'Australia si trova la città di Perth?",
+      "answers": [
+        {
+          "text": "Nord-Est",
+          "correct": false
+        },
+        {
+          "text": "Sud-Ovest",
+          "correct": true
+        },
+        {
+          "text": "Sud-Est",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "text": "Chi ha scritto 'Morte sol mi darà fama e riposo'?",
+      "answers": [
+        {
+          "text": "Alessandro Manzoni",
+          "correct": false
+        },
+        {
+          "text": "Giacomo Leopardi",
+          "correct": false
+        },
+        {
+          "text": "Ugo Foscolo",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "text": "Per quale testata scriveva Malala Yousafzai, premio Nobel per la Pace 2014?",
+      "answers": [
+        {
+          "text": "BBC",
+          "correct": true
+        },
+        {
+          "text": "New York Times",
+          "correct": false
+        },
+        {
+          "text": "Washington Post",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "text": "Quanto dura la memoria di un comune pesce rosso?",
+      "answers": [
+        {
+          "text": "Alcune ore",
+          "correct": false
+        },
+        {
+          "text": "Decine di giorni",
+          "correct": true
+        },
+        {
+          "text": "Pochi secondi",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "text": "In che anno venne presentato il compact disc?",
+      "answers": [
+        {
+          "text": "1979",
+          "correct": true
+        },
+        {
+          "text": "1982",
+          "correct": false
+        },
+        {
+          "text": "1983",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "text": "Quale tra queste cinture del karate è la più alta di grato?",
+      "answers": [
+        {
+          "text": "Marrone",
+          "correct": true
+        },
+        {
+          "text": "Verde",
+          "correct": false
+        },
+        {
+          "text": "Gialla",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "text": "Le cascate del Niagara si trovano al confine tra quali stati?",
+      "answers": [
+        {
+          "text": "Messico e Guatemala",
+          "correct": false
+        },
+        {
+          "text": "USA e Canada",
+          "correct": true
+        },
+        {
+          "text": "Kenya e Uganda",
+          "correct": false
+        }
+      ]
+    }
+  ]
+}
