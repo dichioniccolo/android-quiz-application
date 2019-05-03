@@ -46,8 +46,6 @@ public class MainActivity extends AppCompatActivity {
      * Load all the questions from JSON file
      */
     private void loadQuestions() {
-        GameManager gm = GameManager.getInstance();
-
         try (BufferedReader bf = new BufferedReader(new InputStreamReader(getAssets().open("questions.json")))) {
             StringBuilder sb = new StringBuilder();
 
@@ -83,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
                 if(correctAnswerIndex == -1)
                     return;
 
-                gm.addQuestion(new Question(questionText, questionAnswers, correctAnswerIndex));
+                GameManager.getInstance().addQuestion(new Question(questionText, questionAnswers, correctAnswerIndex));
             }
         } catch (Exception e) {
             Log.d("ERRORE", e.getMessage());
