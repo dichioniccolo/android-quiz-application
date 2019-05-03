@@ -1,7 +1,5 @@
 package it.niccolodichio.quiz.game;
 
-import android.util.Log;
-
 import java.util.List;
 
 /**
