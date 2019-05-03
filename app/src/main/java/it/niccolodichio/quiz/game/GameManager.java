@@ -15,7 +15,7 @@ public class GameManager {
         return instance;
     }
 
-    final private int MAX_QUESTIONS = 10;
+    final private int MAX_QUESTIONS = 5;
 
     private List<Question> allQuestions;
     private List<Question> gameQuestions;
@@ -27,18 +27,10 @@ public class GameManager {
         score = 0;
     }
 
-    /**
-     * Get the game questions
-     * @return Current game questions
-     */
     public List<Question> getQuestions() {
         return gameQuestions;
     }
 
-    /**
-     * Add a new question to all the present questions
-     * @param question A question {@link Question}
-     */
     public void addQuestion(Question question) {
         if(allQuestions.contains(question))
             return;
@@ -66,11 +58,6 @@ public class GameManager {
         }
     }
 
-    /**
-     * Get the question at index
-     * @param index Index of the question
-     * @return The question {@link Question} if found otherwise returns null
-     */
     public Question getQuestion(int index) {
         if(index >= gameQuestions.size())
             return null;
@@ -78,24 +65,17 @@ public class GameManager {
         return gameQuestions.get(index);
     }
 
-    /**
-     * Increment the score
-     * @param answer The answer to check {@link Answer}
-     */
-    public void incrementScore(Answer answer) {
-        if(answer.isCorrect())
+    public void incrementScore(Question question, Answer answer) {
+        if(question.isCorrect(answer))
             score++;
     }
 
-    /**
-     * @return The current score
-     */
     public int getScore() {
         return score;
     }
 
     /**
-     * Clear the questions after a game
+     * Clear the questions and reset the score after a game
      */
     public void clear() {
         allQuestions.clear();

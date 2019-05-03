@@ -64,25 +64,26 @@ public class MainActivity extends AppCompatActivity {
                 JSONArray answersJson = questionObject.getJSONArray("answers");
 
                 List<Answer> questionAnswers = new ArrayList<>();
+                int correctAnswerIndex = -1;
                 for(int j = 0; j < answersJson.length(); j++) {
-                    JSONObject singleAnswerJson = answersJson.getJSONObject(j);
+                    JSONObject singleAnswerJson = answersJson.optJSONObject(j);
 
-                    String answerText = singleAnswerJson.getString("text");
-                    boolean answerCorrect = singleAnswerJson.getBoolean("correct");
-                    questionAnswers.add(new Answer(answerText, answerCorrect));
+                    String answerText;
+
+                    if(singleAnswerJson == null) {
+                        answerText = answersJson.getString(j);
+                    } else {
+                        answerText = singleAnswerJson.getString("text");
+                        correctAnswerIndex = j;
+                    }
+
+                    questionAnswers.add(new Answer(answerText));
                 }
 
-                int correctCount = 0;
-
-                for(Answer a : questionAnswers) {
-                    if(a.isCorrect())
-                        correctCount++;
-                }
-
-                if(questionAnswers.size() < 2 || questionAnswers.size() > 4 || correctCount > 1)
+                if(correctAnswerIndex == -1)
                     return;
 
-                gm.addQuestion(new Question(questionText, questionAnswers));
+                gm.addQuestion(new Question(questionText, questionAnswers, correctAnswerIndex));
             }
         } catch (Exception e) {
             Log.d("ERRORE", e.getMessage());

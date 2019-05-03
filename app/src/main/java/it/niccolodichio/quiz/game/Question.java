@@ -1,6 +1,7 @@
 package it.niccolodichio.quiz.game;
 
-import java.util.Collections;
+import android.util.Log;
+
 import java.util.List;
 
 /**
@@ -10,12 +11,12 @@ public class Question {
 
     private String text;
     private List<Answer> answers;
+    private int correctAnswerIndex;
 
-    public Question(String text, List<Answer> answers) {
+    public Question(String text, List<Answer> answers, int correctAnswerIndex) {
         this.text = text;
         this.answers = answers;
-        // Shuffle the list to have some random positioning
-        Collections.shuffle(this.answers);
+        this.correctAnswerIndex = correctAnswerIndex;
     }
 
     public String getText() {
@@ -24,5 +25,16 @@ public class Question {
 
     public List<Answer> getAnswers() {
         return answers;
+    }
+
+    public boolean isCorrect(Answer answer) {
+        int index = 0;
+
+        for(Answer a : answers) {
+            if(a.equals(answer))
+                return index == correctAnswerIndex;
+            index++;
+        }
+        return false;
     }
 }

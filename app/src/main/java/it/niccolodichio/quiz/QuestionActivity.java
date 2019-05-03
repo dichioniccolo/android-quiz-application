@@ -4,12 +4,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
@@ -28,6 +33,7 @@ public class QuestionActivity extends AppCompatActivity {
     private Question question;
     private Map<View, Answer> questionAnswers;
     private CountDownTimer timer;
+    private RadioGroup answerGroup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +42,8 @@ public class QuestionActivity extends AppCompatActivity {
 
         questionIndex = getIntent().getIntExtra("QUESTION_INDEX", 0);
         question = GameManager.getInstance().getQuestion(questionIndex);
+
+        answerGroup = findViewById(R.id.answerGroup);
 
         questionAnswers = new HashMap<>();
 
@@ -87,8 +95,7 @@ public class QuestionActivity extends AppCompatActivity {
      * Check the pressed answer, called when timer has finished
      */
     private void checkAnswer() {
-        RadioGroup group = findViewById(R.id.answerGroup);
-        View view = findViewById(group.getCheckedRadioButtonId());
+        View view = findViewById(answerGroup.getCheckedRadioButtonId());
 
         if(!questionAnswers.containsKey(view))
             return;
@@ -97,7 +104,7 @@ public class QuestionActivity extends AppCompatActivity {
         if(answer == null)
             return;
 
-        GameManager.getInstance().incrementScore(answer);
+        GameManager.getInstance().incrementScore(question, answer);
     }
 
     /**
@@ -105,41 +112,26 @@ public class QuestionActivity extends AppCompatActivity {
      * It also binds an answer to a radio button and shows the content.
      */
     private void loadAnswers() {
-        switch(question.getAnswers().size()) {
-            case 2:
-                findViewById(R.id.answerFour).setVisibility(View.INVISIBLE);
-                findViewById(R.id.answerThree).setVisibility(View.INVISIBLE);
-                break;
-            case 3:
-                findViewById(R.id.answerFour).setVisibility(View.INVISIBLE);
-                break;
-        }
-
-        int radioAnswerIndex = 0;
+        List<RadioButton> radioButtons = new ArrayList<>();
 
         for(Answer answer : question.getAnswers()) {
-            RadioButton radio = null;
-            switch(radioAnswerIndex++) {
-                case 0:
-                    radio = findViewById(R.id.answerOne);
-                    break;
-                case 1:
-                    radio = findViewById(R.id.answerTwo);
-                    break;
-                case 2:
-                    radio = findViewById(R.id.answerThree);
-                    break;
-                case 3:
-                    radio = findViewById(R.id.answerFour);
-                    break;
-            }
-
-            if(radio == null)
-                break;
-
+            RadioButton radio = new RadioButton(this);
+            radio.setTextSize(14);
+            radio.setLayoutParams(new RadioGroup.LayoutParams(
+                    RadioGroup.LayoutParams.MATCH_PARENT,
+                    RadioGroup.LayoutParams.WRAP_CONTENT,
+                    1.0f
+            ));
             questionAnswers.put(radio, answer);
+
+            radioButtons.add(radio);
 
             radio.setText(answer.getText());
         }
+
+        Collections.shuffle(radioButtons);
+
+        for(RadioButton radio : radioButtons)
+            answerGroup.addView(radio);
     }
 }

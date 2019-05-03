@@ -43,33 +43,7 @@
             android:layout_height="315dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="288dp">
-
-            <RadioButton
-                android:id="@+id/answerOne"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textSize="14sp" />
-
-            <RadioButton
-                android:id="@+id/answerTwo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <RadioButton
-                android:id="@+id/answerThree"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <RadioButton
-                android:id="@+id/answerFour"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-        </RadioGroup>
+            tools:layout_editor_absoluteY="288dp" />
 
     </LinearLayout>
 
