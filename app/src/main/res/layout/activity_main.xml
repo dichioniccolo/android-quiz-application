@@ -9,17 +9,13 @@
     <LinearLayout
         android:layout_width="395dp"
         android:layout_height="715dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
         android:gravity="center"
+        android:onClick="startGame"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:onClick="startGame">
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/logo"
@@ -29,12 +25,13 @@
 
         <Button
             android:id="@+id/button"
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="match_parent"
-            android:layout_height="41dp"
+            android:layout_height="50dp"
             android:backgroundTint="#FAFAFA"
+            android:layout_marginBottom="30dp"
             android:text="Click on the screen to start"
-            android:textColor="#000000"
-            style="?android:attr/borderlessButtonStyle" />
+            android:textColor="#000000" />
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

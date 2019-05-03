@@ -23,10 +23,6 @@ import it.niccolodichio.quiz.game.Question;
  */
 public class MainActivity extends AppCompatActivity {
 
-    /**
-     * The main activity called when the app is launched
-     * @param savedInstanceState
-     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Method bound to the button "Start Game"
+     * Method attached to the button "Start Game"
      * @param view
      */
     public void startGame(View view) {
@@ -47,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Load all the questions
+     * Load all the questions from JSON file
      */
     private void loadQuestions() {
         GameManager gm = GameManager.getInstance();
@@ -60,21 +56,31 @@ public class MainActivity extends AppCompatActivity {
                 sb.append(line).append("\n");
 
             JSONObject data = new JSONObject(sb.toString());
-            JSONArray questionsArray = data.getJSONArray("data");
+            JSONArray questionsJson = data.getJSONArray("data");
 
-            for(int i = 0; i < questionsArray.length(); i++) {
-                JSONObject questionObject = questionsArray.getJSONObject(i);
+            for(int i = 0; i < questionsJson.length(); i++) {
+                JSONObject questionObject = questionsJson.getJSONObject(i);
                 String questionText = questionObject.getString("text");
-                JSONArray answers = questionObject.getJSONArray("answers");
+                JSONArray answersJson = questionObject.getJSONArray("answers");
 
                 List<Answer> questionAnswers = new ArrayList<>();
-                for(int j = 0; j < answers.length(); j++) {
-                    JSONObject answer = answers.getJSONObject(j);
+                for(int j = 0; j < answersJson.length(); j++) {
+                    JSONObject singleAnswerJson = answersJson.getJSONObject(j);
 
-                    String answerText = answer.getString("text");
-                    boolean answerCorrect = answer.getBoolean("correct");
+                    String answerText = singleAnswerJson.getString("text");
+                    boolean answerCorrect = singleAnswerJson.getBoolean("correct");
                     questionAnswers.add(new Answer(answerText, answerCorrect));
                 }
+
+                int correctCount = 0;
+
+                for(Answer a : questionAnswers) {
+                    if(a.isCorrect())
+                        correctCount++;
+                }
+
+                if(questionAnswers.size() < 2 || questionAnswers.size() > 4 || correctCount > 1)
+                    return;
 
                 gm.addQuestion(new Question(questionText, questionAnswers));
             }

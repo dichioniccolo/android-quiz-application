@@ -29,35 +29,26 @@ public class QuestionActivity extends AppCompatActivity {
     private Map<View, Answer> questionAnswers;
     private CountDownTimer timer;
 
-    /**
-     * The question activity called for every game question
-     * @param savedInstanceState
-     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
 
-        // The current question index
         questionIndex = getIntent().getIntExtra("QUESTION_INDEX", 0);
-
-        // The current question object
         question = GameManager.getInstance().getQuestion(questionIndex);
+
         questionAnswers = new HashMap<>();
 
-        // Set quetion number
         ((TextView) findViewById(R.id.questionNumber)).setText("Domanda N°" + (questionIndex + 1));
-        // Set question content
         ((TextView) findViewById(R.id.questionText)).setText(question.getText());
 
-        // Loads the answers
         loadAnswers();
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        // Starts the countdown
+        // Start the countdown
         timer = new CountDownTimer(COUNTDOWN, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
@@ -89,12 +80,11 @@ public class QuestionActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        // Cancel the countdown when pause activity
         timer.cancel();
     }
 
     /**
-     * Check the presset answer, called when next/finish button is clicked
+     * Check the pressed answer, called when timer has finished
      */
     private void checkAnswer() {
         RadioGroup group = findViewById(R.id.answerGroup);
@@ -103,20 +93,18 @@ public class QuestionActivity extends AppCompatActivity {
         if(!questionAnswers.containsKey(view))
             return;
 
-        // The selected answer
         Answer answer = questionAnswers.get(view);
         if(answer == null)
             return;
 
-        // Increments the score (only if answer is correct)
         GameManager.getInstance().incrementScore(answer);
     }
 
     /**
-     * Loads and displays all answers
+     * Loads and displays radio buttons for answers.
+     * It also binds an answer to a radio button and shows the content.
      */
     private void loadAnswers() {
-        // Display the correct amount of radio buttons based on number of answers in the question
         switch(question.getAnswers().size()) {
             case 2:
                 findViewById(R.id.answerFour).setVisibility(View.INVISIBLE);
@@ -127,13 +115,11 @@ public class QuestionActivity extends AppCompatActivity {
                 break;
         }
 
+        int radioAnswerIndex = 0;
 
-        int answerIndex = 0;
-
-        // Bind an answer to a radio button and shows the answer content
         for(Answer answer : question.getAnswers()) {
             RadioButton radio = null;
-            switch(answerIndex++) {
+            switch(radioAnswerIndex++) {
                 case 0:
                     radio = findViewById(R.id.answerOne);
                     break;
@@ -146,8 +132,6 @@ public class QuestionActivity extends AppCompatActivity {
                 case 3:
                     radio = findViewById(R.id.answerFour);
                     break;
-                default:
-                    return;
             }
 
             if(radio == null)

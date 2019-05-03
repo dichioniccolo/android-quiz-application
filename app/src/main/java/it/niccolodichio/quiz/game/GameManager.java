@@ -6,29 +6,21 @@ import java.util.List;
 import java.util.Random;
 
 /**
- * Singleton
  * @author Niccolò Di Chio
  */
 public class GameManager {
     static private final GameManager instance = new GameManager();
 
-    /**
-     * @return The instance of the singleton
-     */
     static public GameManager getInstance() {
         return instance;
     }
 
-    // Maximum number of playable questions
     final private int MAX_QUESTIONS = 10;
 
     private List<Question> allQuestions;
     private List<Question> gameQuestions;
     private int score;
 
-    /**
-     * Basic constructor
-     */
     private GameManager() {
         allQuestions = new ArrayList<>();
         gameQuestions = new ArrayList<>();
@@ -44,7 +36,7 @@ public class GameManager {
     }
 
     /**
-     * Add a new question to all the present questions and create a game questions list
+     * Add a new question to all the present questions
      * @param question A question {@link Question}
      */
     public void addQuestion(Question question) {
@@ -53,10 +45,8 @@ public class GameManager {
 
         allQuestions.add(question);
 
-        // Shuffle the list of all the questions
         Collections.shuffle(allQuestions);
 
-        // Create a list of questions for the game
         loadGameQuestions();
     }
 

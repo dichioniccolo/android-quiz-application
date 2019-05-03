@@ -20,8 +20,6 @@ public class CountdownActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        int questionIndex = getIntent().getIntExtra("QUESTION_INDEX", 0);
-
         new CountDownTimer(COUNTDOWN, 1000) {
 
             @Override
@@ -32,7 +30,7 @@ public class CountdownActivity extends AppCompatActivity {
             @Override
             public void onFinish() {
                 Intent intent = new Intent(CountdownActivity.this, QuestionActivity.class);
-                intent.putExtra("QUESTION_INDEX", questionIndex);
+                intent.putExtra("QUESTION_INDEX", getIntent().getIntExtra("QUESTION_INDEX", 0));
                 startActivity(intent);
                 finish();
             }
