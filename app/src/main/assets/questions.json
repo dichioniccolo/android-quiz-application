@@ -322,6 +322,91 @@
           "correct": false
         }
       ]
+    },
+    {
+      "text": "Chi interpreta il protagonista in Willy, il principe di Bel-Air?",
+      "answers": [
+        {
+          "text": "Jamie Foxx",
+          "correct": false
+        },
+        {
+          "text": "Micheal B. Jordan",
+          "correct": false
+        },
+        {
+          "text": "Will Smith",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "text": "Nella mitologia greca Cerbero è:",
+      "answers": [
+        {
+          "text": "Un cane a tre teste",
+          "correct": true
+        },
+        {
+          "text": "Un cavallo alato",
+          "correct": false
+        },
+        {
+          "text": "Un drago con due code",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "text": "La città di Kaliningrad è un esempio di:",
+      "answers": [
+        {
+          "text": "Enclave",
+          "correct": false
+        },
+        {
+          "text": "Exclave",
+          "correct": true
+        },
+        {
+          "text": "Nessuna delle due",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "text": "Chi fu il primo imperatore romano?",
+      "answers": [
+        {
+          "text": "Vespasiano",
+          "correct": false
+        },
+        {
+          "text": "Cesare",
+          "correct": false
+        },
+        {
+          "text": "Augusto",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "text": "Quale di questi imprenditori è stato interrogato per lo scandalo 'Cambridge Analytica'?",
+      "answers": [
+        {
+          "text": "Bill Gates",
+          "correct": false
+        },
+        {
+          "text": "Elon Musk",
+          "correct": false
+        },
+        {
+          "text": "Mark Zuckerberg",
+          "correct": true
+        }
+      ]
     }
   ]
 }
